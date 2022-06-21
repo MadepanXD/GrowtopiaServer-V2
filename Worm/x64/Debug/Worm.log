@@ -1,0 +1,26 @@
+﻿  main.cpp
+C:\Users\Ryzen\Desktop\Worm\Worm\back_end.h(87,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Ryzen\Desktop\Worm\Worm\back_end.h(88,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Ryzen\Desktop\Worm\Worm\back_end.h(128,48): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\Ryzen\Desktop\Worm\Worm\player_base.h(657,51): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Ryzen\Desktop\Worm\Worm\player_base.h(657,51): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\Ryzen\Desktop\Worm\Worm\world_entity.h(22,66): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Ryzen\Desktop\Worm\Worm\world_entity.h(23,48): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Ryzen\Desktop\Worm\Worm\world_base.h(138,15): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Users\Ryzen\Desktop\Worm\Worm\world_base.h(148,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Ryzen\Desktop\Worm\Worm\world_base.h(238,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Ryzen\Desktop\Worm\Worm\world_base.h(247,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Ryzen\Desktop\Worm\Worm\main.cpp(91,68): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+main.obj : error LNK2019: unresolved external symbol enet_initialize referenced in function main
+main.obj : error LNK2019: unresolved external symbol enet_address_set_host referenced in function main
+main.obj : error LNK2019: unresolved external symbol enet_address_get_host_ip referenced in function main
+main.obj : error LNK2019: unresolved external symbol enet_packet_create referenced in function "public: void __cdecl gamepacket_t::CreatePacket(struct _ENetPeer *)" (?CreatePacket@gamepacket_t@@QEAAXPEAU_ENetPeer@@@Z)
+main.obj : error LNK2019: unresolved external symbol enet_packet_destroy referenced in function main
+main.obj : error LNK2019: unresolved external symbol enet_crc32 referenced in function main
+main.obj : error LNK2019: unresolved external symbol enet_host_create referenced in function main
+main.obj : error LNK2019: unresolved external symbol enet_host_service referenced in function main
+main.obj : error LNK2019: unresolved external symbol enet_host_compress_with_range_coder referenced in function main
+main.obj : error LNK2019: unresolved external symbol enet_peer_send referenced in function "public: void __cdecl gamepacket_t::CreatePacket(struct _ENetPeer *)" (?CreatePacket@gamepacket_t@@QEAAXPEAU_ENetPeer@@@Z)
+main.obj : error LNK2019: unresolved external symbol enet_peer_disconnect_now referenced in function main
+main.obj : error LNK2019: unresolved external symbol enet_peer_disconnect_later referenced in function "void __cdecl Auto_ban(struct _ENetPeer *,__int64,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?Auto_ban@@YAXPEAU_ENetPeer@@_JV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+C:\Users\Ryzen\Desktop\Worm\x64\Debug\Worm.exe : fatal error LNK1120: 12 unresolved externals
