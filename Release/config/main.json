@@ -2,7 +2,8 @@
 	"port": "17091",
 	"ip": "192.168.18.43",
 	"meta": "unknown",
-	"cdn": "0098/99008/cache/",
-	"version1": "3.93",
+	"cdn": "0098/18818/cache/", 
+	"version1": "3.93", 
+	"proto": "162",
 	"version2": "3.93"
 }
