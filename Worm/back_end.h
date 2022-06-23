@@ -10,7 +10,7 @@ using json = nlohmann::json;
 
 /*server_base*/
 ENetHost* server;
-string SERVER_PORT = "17091", SERVER_IP = "127.0.0.1", SERVER_META = "127.0.0.1", SERVER_CDN = "0098/63368/cache/", SERVER_GAME_VERSION = "3.91", SERVER_ANDROID_GAME_VERSION = "3.90";
+string SERVER_PROTO = "162", SERVER_PORT = "17091", SERVER_IP = "127.0.0.1", SERVER_META = "127.0.0.1", SERVER_CDN = "0098/63368/cache/", SERVER_GAME_VERSION = "3.91", SERVER_ANDROID_GAME_VERSION = "3.90";
 bool server_on_freeze = false, maintenance = false;
 int itemdathash = 0, itemsDatSize = 0, totaluserids = 0, cId = 1, maxItems = 0;
 BYTE* itemsDat = 0;
