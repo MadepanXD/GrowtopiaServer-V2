@@ -119,10 +119,26 @@ inline void apply_lock(ENetPeer* peer, int x, int y, int tile_id, World* world, 
 				if (m_.m_x - 1 >= 0) legion.push_back({ m_.m_x - 1, m_.m_y });
 				if (m_.m_y + 1 < world->width) legion.push_back({ m_.m_x, m_.m_y + 1 });
 				if (m_.m_y - 1 >= 0) legion.push_back({ m_.m_x, m_.m_y - 1 });
-				if (m_.m_x + 1 < world->width and m_.m_y - 1 >= 0) legion.push_back({ m_.m_x + 1, m_.m_y - 1 });
-				if (m_.m_x - 1 >= 0 and m_.m_y + 1 < world->height) legion.push_back({ m_.m_x - 1, m_.m_y + 1 });
-				if (m_.m_x + 1 < world->width and m_.m_y + 1 < world->height) legion.push_back({ m_.m_x + 1, m_.m_y + 1 });
-				if (m_.m_x - 1 >= 0 and m_.m_y - 1 >= 0) legion.push_back({ m_.m_x - 1, m_.m_y - 1 });
+				if (m_.m_x + 1 < world->width and m_.m_y - 1 >= 0) {
+					if (world->items[(m_.m_x + 1) + ((m_.m_y) * world->width)].foreground != 0 or world->items[(m_.m_x + 1) + ((m_.m_y) * world->width)].background != 0) legion.push_back({ m_.m_x + 1, m_.m_y - 1 });
+					else if (world->items[(m_.m_x) + ((m_.m_y - 1) * world->width)].foreground != 0 or world->items[(m_.m_x) + ((m_.m_y - 1) * world->width)].background != 0) legion.push_back({ m_.m_x + 1, m_.m_y - 1 });
+					else legion.push_back({ m_.m_x, m_.m_y });
+				}
+				if (m_.m_x - 1 >= 0 and m_.m_y + 1 < world->height) {
+					if (world->items[(m_.m_x - 1) + ((m_.m_y) * world->width)].foreground != 0 or world->items[(m_.m_x - 1) + ((m_.m_y) * world->width)].background != 0) legion.push_back({ m_.m_x - 1, m_.m_y + 1 });
+					else if (world->items[(m_.m_x) + ((m_.m_y + 1) * world->width)].foreground != 0 or world->items[(m_.m_x) + ((m_.m_y + 1) * world->width)].background != 0) legion.push_back({ m_.m_x - 1, m_.m_y + 1 });
+					else legion.push_back({ m_.m_x, m_.m_y });
+				}
+				if (m_.m_x + 1 < world->width and m_.m_y + 1 < world->height) {
+					if (world->items[(m_.m_x + 1) + ((m_.m_y) * world->width)].foreground != 0 or world->items[(m_.m_x + 1) + ((m_.m_y) * world->width)].background != 0) legion.push_back({ m_.m_x + 1, m_.m_y + 1 });
+					else if (world->items[(m_.m_x) + ((m_.m_y + 1) * world->width)].foreground != 0 or world->items[(m_.m_x) + ((m_.m_y + 1) * world->width)].background != 0) legion.push_back({ m_.m_x + 1, m_.m_y + 1 });
+					else legion.push_back({ m_.m_x, m_.m_y });
+				}
+				if (m_.m_x - 1 >= 0 and m_.m_y - 1 >= 0) {
+					if (world->items[(m_.m_x - 1) + ((m_.m_y) * world->width)].foreground != 0 or world->items[(m_.m_x - 1) + ((m_.m_y) * world->width)].background != 0) legion.push_back({ m_.m_x - 1, m_.m_y - 1 });
+					else if (world->items[(m_.m_x) + ((m_.m_y - 1) * world->width)].foreground != 0 or world->items[(m_.m_x) + ((m_.m_y - 1) * world->width)].background != 0) legion.push_back({ m_.m_x - 1, m_.m_y - 1 });
+					else legion.push_back({ m_.m_x, m_.m_y });
+				}
 				if (m_.m_x + 2 < world->width) {
 					if (world->items[(m_.m_x + 1) + (m_.m_y * world->width)].foreground != 0 or world->items[(m_.m_x + 1) + (m_.m_y * world->width)].background != 0) legion.push_back({ m_.m_x + 2, m_.m_y });
 					else legion.push_back({ m_.m_x, m_.m_y });
