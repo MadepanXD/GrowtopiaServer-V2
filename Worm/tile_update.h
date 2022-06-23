@@ -458,10 +458,6 @@ inline void tile_update(int x, int y, int tile_, int c_b, ENetPeer* peer) {
 								}
 							}
 						}
-						else if (block_.foreground == 720) {
-							Send_::console_msg(peer, "AWDAWDWAd");
-							drop_prize(peer, world, x, y, block_.foreground);
-						}
 						world->items[x + (y * world->width)].foreground = 0;
 					} else {
 						world->items[x + (y * world->width)].background = 0;

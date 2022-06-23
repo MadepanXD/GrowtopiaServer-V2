@@ -153,7 +153,7 @@ int main() {
 										p.CreatePacket(peer);
 										Send_::gemupdate_(peer, pInfo(peer)->gems, 0);
 										Send_::set_growID(peer, 1, pInfo(peer)->tankIDName, pInfo(peer)->tankIDPass);
-										Send_::emoticon(peer, 151224576, u8"(wl)|─ü|0&(yes)|─é|0&(no)|─â|0&(love)|─ä|0&(oops)|─à|0&(shy)|─å|0&(wink)|─ç|0&(tongue)|─ê|1&(agree)|─ë|0&(sleep)|─è|0&(punch)|─ï|0&(music)|─î|0&(build)|─ì|0&(megaphone)|─Ä|0&(sigh)|─Å|1&(mad)|─É|1&(wow)|─æ|1&(dance)|─Æ|0&(see-no-evil)|─ô|0&(bheart)|─ö|0&(heart)|─ò|0&(grow)|─û|0&(gems)|─ù|0&(kiss)|─ÿ|1&(gtoken)|─Ö|0&(lol)|─Ü|0&(smile)|─Ç|1&(cool)|─£|0&(cry)|─¥|0&(vend)|─₧|0&(bunny)|─¢|0&(cactus)|─ƒ|0&(pine)|─ñ|0&(peace)|─ú|0&(terror)|─í|0&(troll)|─á|0&(evil)|─ó|0&(fireworks)|─ª|0&(football)|─Ñ|0&(alien)|─º|0&(party)|─¿|0&(pizza)|─⌐|0&(clap)|─¬|0&(song)|─½|0&(ghost)|─¼|0&(nuke)|─¡|0&(halo)|─«|0&(turkey)|─»|0&(gift)|─░|0&(cake)|─▒|0&(heartarrow)|─▓|0&(lucky)|─│|0&(shamrock)|─┤|0&(grin)|─╡|0&(ill)|─╢|0&(eyes)|─╖|0&(weary)|─╕|0&");
+										Send_::emoticon(peer, 0, u8"(wl)|─ü|0&(yes)|─é|0&(no)|─â|0&(love)|─ä|0&(oops)|─à|0&(shy)|─å|0&(wink)|─ç|0&(tongue)|─ê|0&(agree)|─ë|0&(sleep)|─è|0&(punch)|─ï|0&(music)|─î|0&(build)|─ì|0&(megaphone)|─Ä|0&(sigh)|─Å|0&(mad)|─É|0&(wow)|─æ|0&(dance)|─Æ|0&(see-no-evil)|─ô|0&(bheart)|─ö|0&(heart)|─ò|0&(grow)|─û|0&(gems)|─ù|0&(kiss)|─ÿ|0&(gtoken)|─Ö|0&(lol)|─Ü|0&(smile)|─Ç|0&(cool)|─£|0&(cry)|─¥|0&(vend)|─₧|0&(bunny)|─¢|0&(cactus)|─ƒ|0&(pine)|─ñ|0&(peace)|─ú|0&(terror)|─í|0&(troll)|─á|0&(evil)|─ó|0&(fireworks)|─ª|0&(football)|─Ñ|0&(alien)|─º|0&(party)|─¿|0&(pizza)|─⌐|0&(clap)|─¬|0&(song)|─½|0&(ghost)|─¼|0&(nuke)|─¡|0&(halo)|─«|0&(turkey)|─»|0&(gift)|─░|0&(cake)|─▒|0&(heartarrow)|─▓|0&(lucky)|─│|0&(shamrock)|─┤|0&(grin)|─╡|0&(ill)|─╢|0&(eyes)|─╖|0&(weary)|─╕|0&");
 										for (ENetPeer* net_p = server->peers; net_p < &server->peers[server->peerCount]; ++net_p) {
 											if (net_p->state != ENET_PEER_STATE_CONNECTED or net_p->data == NULL) continue;
 											if (find(pInfo(peer)->friendinfo.begin(), pInfo(peer)->friendinfo.end(), pInfo(net_p)->rawName) != pInfo(peer)->friendinfo.end()) {
@@ -530,6 +530,9 @@ int main() {
 														if (check_fg(peer, world, (int)pMov->x, (int)pMov->y)) break;
 														if ((pInfo(peer)->x / 32 == (int)pMov->x / 32) or ((pInfo(peer)->x / 32) + 1 == (int)pMov->x / 32) or ((pInfo(peer)->x / 32) - 1 == (int)pMov->x / 32) or ((pInfo(peer)->x / 32) + 2 == (int)pMov->x / 32) or ((pInfo(peer)->x / 32) - 2 == (int)pMov->x / 32)) {
 															DroppedItem droppedItem = world->droppedItems.at(atik);
+															bool valid = false;
+															search_inv(peer, droppedItem.id, 200, valid);
+															if (valid) break;
 															if (droppedItem.id == 112) {
 																try {
 																	pInfo(peer)->gems += droppedItem.count;

@@ -101,7 +101,6 @@ inline void dialog_handler(ENetPeer* peer, string cch) {
 									break;
 								}
 								int loc_x = pInfo(peer)->x + ((rand()%8) * (pInfo(peer)->isRotatedLeft ? -1 : 1)) + (20 * (pInfo(peer)->isRotatedLeft ? -1 : 1)), loc_y = pInfo(peer)->y + (rand() % 12);
-								Send_::console_msg(peer, to_string(loc_x));
 								if (loc_x < 0 or loc_y < 0 or pInfo(peer)->x < 0 or pInfo(peer)->y < 0) break;
 								if (not pInfo(peer)->currentWorld.empty() and pInfo(peer)->currentWorld != "EXIT" and world != NULL and world->name != "EXIT") {
 									gamepacket_t p(180);
@@ -495,7 +494,6 @@ inline void dialog_handler(ENetPeer* peer, string cch) {
 				if (infoDat.at(0) == "verifypass") {
 					new_password_verif = infoDat.at(1);
 					if (pInfo(peer)->haveGrowId and pInfo(peer)->inGame and pInfo(peer)->passed_data and not pInfo(peer)->tankIDName.empty() and not pInfo(peer)->tankIDPass.empty() and not pInfo(peer)->lobby_guest_acc and pInfo(peer)->currentWorld != "EXIT") {
-						if (old_password.empty() or new_password.empty() or new_password_verif.empty()) break;
 						if (toLowerText(pInfo(peer)->tankIDPass) != toLowerText(old_password)) {
 							Send_::dialog_(peer, "set_default_color|`o\nadd_label_with_icon|big|`wChange Password|left|1280|\nadd_spacer|small|\nadd_textbox|`4Oops! `oThe Current Password you have entered is incorrect!``|\nadd_spacer|small|\nadd_text_input|oldpass|`$Current Password``||18|\nadd_text_input|newpass|`$New Password``||18|\nadd_text_input|verifypass|`$Verify Password``||18|\nend_dialog|pass_change|`wCancel``|`wConfirm!``|");
 						}
