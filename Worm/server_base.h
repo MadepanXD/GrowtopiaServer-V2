@@ -36,7 +36,7 @@ inline void load_() {
 		json j;
 		ifs >> j;
 		ifs.close();
-		SERVER_PORT = j["port"].get<string>(), SERVER_IP = j["ip"].get<string>(), SERVER_META = j["meta"].get<string>(), SERVER_CDN = j["cdn"].get<string>(), SERVER_GAME_VERSION = j["version1"].get<string>(), SERVER_ANDROID_GAME_VERSION = j["version2"].get<string>();
+		SERVER_PORT = j["port"].get<string>(), SERVER_PROTO = j["proto"].get<string>(), SERVER_IP = j["ip"].get<string>(), SERVER_META = j["meta"].get<string>(), SERVER_CDN = j["cdn"].get<string>(), SERVER_GAME_VERSION = j["version1"].get<string>(), SERVER_ANDROID_GAME_VERSION = j["version2"].get<string>();
 		server_alert("Config Loaded!\n[INFO] Hosting on: " + SERVER_IP + ":" + SERVER_PORT + "\n[INFO] Server Game Version: PC[" + SERVER_GAME_VERSION + "] / ANDROID[" + SERVER_ANDROID_GAME_VERSION + "]");
 		j.clear();
 	}
